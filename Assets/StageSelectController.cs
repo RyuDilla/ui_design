@@ -17,6 +17,7 @@ public class StageSelectController : MonoBehaviour
     {
         GameObject childObject = gameObject.transform.Find("StageImage").gameObject;
         stageImage = childObject.GetComponent<Image>();
+        stageImage.sprite = stageSpriteList[0];
     }
 
     public void SetStageID(int stageID)
@@ -27,6 +28,6 @@ public class StageSelectController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(sceneArray[selectedStageID]);
+        SceneManager.LoadScene(sceneArray[selectedStageID - 1]);
     }
 }
