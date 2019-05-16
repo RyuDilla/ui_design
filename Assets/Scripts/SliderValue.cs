@@ -16,10 +16,16 @@ public class SliderValue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void UpdateSliderValue()
+    {
         if(userSlider)
         {
             Debug.Log(userSlider.value);
-            
+            PlayerPrefs.SetFloat("Gravity", userSlider.value);
+            print("Gravity : " + PlayerPrefs.GetFloat("Gravity"));
         }
     }
 }

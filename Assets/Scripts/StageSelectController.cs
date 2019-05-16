@@ -6,14 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class StageSelectController : MonoBehaviour
 {
-    public int selectedStageIdx;
     public Image stageImage;
     public List<Sprite> stageSpriteList;
     public Sprite defaultSprite;
-
     public ToggleGroup toggleGroup;
     private IEnumerable<Toggle> toggles;
-
     public string selectedStageName;
 
     // Start is called before the first frame update
@@ -22,31 +19,51 @@ public class StageSelectController : MonoBehaviour
         stageImage.sprite = defaultSprite;
     }
 
+    void Update()
+    {
+        //UpdateImage();
+    }
+
     public void StartGame()
+    {
+        int selectedStageIdx = GetActiveToggle();
+        // シーンの制御はシーンコントローラーに委譲
+        SceneController.Instance.StartGame(selectedStageIdx);
+    }
+
+        public void UpdateImage()
+    {
+        int spriteIdx = GetActiveToggle();
+        stageImage.sprite = stageSpriteList[spriteIdx];
+    }
+
+    public int GetActiveToggle()
     {
         toggles = toggleGroup.ActiveToggles();
         foreach(Toggle toggle in toggles)
         {
             selectedStageName = toggle.name;
         }
-
+        int idx = 0;
         // ステージ名をインデックスに変換
         switch(selectedStageName)
         {
             case "Stage1":
-                selectedStageIdx = 0;
+                idx = 0;
                 break;
 
             case "Stage2":
-                selectedStageIdx = 1;
+                idx = 1;
                 break;
 
             case "Stage3":
-                selectedStageIdx = 2;
+                idx = 2;
                 break;
-
+            
+            default:
+                break;
         }
-        // シーンの制御はシーンコントローラーに委譲
-        SceneController.Instance.StartGame(selectedStageIdx);
+
+        return idx;
     }
 }
