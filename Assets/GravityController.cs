@@ -15,7 +15,7 @@ public class GravityController : MonoBehaviour
 	void Start () {
 		rb = this.GetComponent<Rigidbody>();
 		rb.useGravity = false;
-        gravityScale = PlayerPrefs.GetFloat("Gravity");
+        gravityScale = PlayerPrefs.GetFloat("GravityScale");
 	}
 
 	void FixedUpdate () {

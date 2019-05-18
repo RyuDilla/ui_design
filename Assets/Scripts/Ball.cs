@@ -22,4 +22,9 @@ public class Ball : MonoBehaviour
                 break;
         }
     }
+
+    void Start()
+    {
+        this.transform.localScale = Vector3.one * PlayerPrefs.GetFloat("BallSize");
+    }
 }
