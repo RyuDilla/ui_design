@@ -1996,6 +1996,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 945086183}
+    - target: {fileID: 5700959484016825932, guid: f63af223866b42c4b83178a07dd809b5,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Programming : swinginJoe
+
+        Design : swinginJoe
+
+        Special Thanks  : Liberal Arts for Tech'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f63af223866b42c4b83178a07dd809b5, type: 3}
 --- !u!1001 &8686885057972076417

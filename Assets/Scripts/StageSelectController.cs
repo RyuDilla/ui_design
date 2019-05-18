@@ -34,7 +34,7 @@ public class StageSelectController : MonoBehaviour
         public void UpdateImage()
     {
         int spriteIdx = GetActiveToggle();
-        stageImage.sprite = stageSpriteList[spriteIdx];
+        stageImage.sprite = stageSpriteList[spriteIdx - 1];
     }
 
     public int GetActiveToggle()
@@ -49,15 +49,15 @@ public class StageSelectController : MonoBehaviour
         switch(selectedStageName)
         {
             case "Stage1":
-                idx = 0;
-                break;
-
-            case "Stage2":
                 idx = 1;
                 break;
 
-            case "Stage3":
+            case "Stage2":
                 idx = 2;
+                break;
+
+            case "Stage3":
+                idx = 3;
                 break;
             
             default:
